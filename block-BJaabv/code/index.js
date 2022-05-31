@@ -9,10 +9,10 @@
 */
 
 // Your code goes here
-function calculateDogAge(puppysAge = 1 , humansAge = 7) {
-  return dogYears = puppysAge * humansAge;
+function calculateDogAge(puppysAge, conversion = 7) {
+  return dogYears = puppysAge * conversion ;
 }
-calculateDogAge(5, 7);
+console.log(calculateDogAge (8,5))
 /*
 2. 🎖Write a function named calculateMoviesToWatch that:
   * [ ] takes 2 arguments: age, number of movies you watch every week. (take 4 weeks per month)
@@ -21,10 +21,11 @@ calculateDogAge(5, 7);
 */
 
 // Your code goes here
-function calculateMoviesToWatch(age = 1 , movies = 1) {
-  return totalMovies = age * movies;
+function calculateMoviesToWatch(age, movies) {
+  let maxAge = 70;
+  let noOfMovies = (maxAge - age) * 12 * 4 * movies;
+  return noOfMovies;
 }
-calculateMoviesToWatch(30, 4);
 
 /*
 3. 🎖Create a function called celsiusToFahrenheit:
@@ -32,21 +33,20 @@ calculateMoviesToWatch(30, 4);
   * [ ] Convert it to fahrenheit and return "NN°F is NN°C"
 */
 // Your code goes here
-function celsiusToFahrenheit(celcius = 0, fahrenheit = 1) {
-  return temp =  celcius * 9/5 + 32;
+function celsiusToFahrenheit(temp) {
+  let  fahrenheit = temp * 9/5 + 32;
+  return `${temp}°F is ${fahrenheit}°C`;
 }
-celsiusToFahrenheit(6, 4);
 /*
 4. 🎖Create a function called fahrenheitToCelsius:
   * [ ] Accepts fahrenheit temperature as argument.
   * [ ] Convert it to celsius and return "NN°F is NN°C"
 */
 // Your code goes here
-  function fahrenheitToCelsius( fahrenheit = 1, celcius = 0) {
-    return temp =  ((fahrenheit - 32) * 5/9) ;
+  function fahrenheitToCelsius(temp) {
+    let celsius =  ((temp - 32) * 5/9) ;
+    return `${temp}°F is ${celsius}°C`;
   }
-  fahrenheitToCelsius(60, 1);
-
 /*
 5. 🎖 Write a function pow(n, x) that returns x in power n.
 
@@ -58,10 +58,10 @@ celsiusToFahrenheit(6, 4);
 function pow(n, x) {
   if (n >= 0) {
   return value = n ** x;
-  }else (n < 0 ); 
+  }else if (n < 0 ) {
   return `The number below 1 is not allowed`
+  }  
 }
-
 // Test
 pow(3, 2); // 9
 pow(3, 3); // 27
@@ -73,11 +73,21 @@ pow(-31, 2); // "The number below 1 is not allowed"
 and return sum or product of 1,…,n. If user enters any other value than `sum` or `product` alert `Not a valid Input`.
 */
 // Your code goes here
-function sumOrProductOfN(a, sum) {
-  switch (operation) {
-    case (sum):
-      return a + a;
-
+function sumOrProductOfN(n, operation) {
+  if (operation === "sum") {
+    let sum = 0;
+    for (let i = 1; i <=n; i++){
+      sum += i;
+    }
+    return sum;
+  }else if (operation === "product"){
+    let product = 1;
+    for (let i = 1; i <=n; i++){
+      sum *= i;
+    }
+    return product;
+  }else {
+    alert(`Not a valid Input`);
   }
 }
 
@@ -90,30 +100,33 @@ sumOrProductOfN(4, 'hello'); // alert "Not a valid Input"
 */
 // Your code goes here
 function sumOfN(n) {
-  return n + 1;
+  let sum = 0;
+    for (let i = 1; i <=n; i++){
+      sum += i;
+    }
+    return sum;  
 }
 
 /*
 7. 🎖Modify the previous program such that only multiples of 5 or 7 are considered in the sum, e.g. n = 20 (5,7,10,14,15,20) 71
 */
-function sumOfN(n) {
-  if (n % 5 === 0 || n % 7 === 0 ) {
-    return n + 1;
-  }else {
-    return `enter num divisible by 5 or 7`
+function sumOfMultiples(n) {
+  let sum = 0;
+  for (let i = 1; i <= n; i++){
+    if (i % 5 === 0 || i % 7 === 0 )
+    sum += i;
   }
+  return sum;
 }
-sumOfN(7);
-
-
 // Your code goes here
 
 /*
 8. 🎖Write a function `min` that takes two arguments and returns their minimum.
 */
-
-function min() {
-  // Your code goes here
+// Your code goes here
+function min(x, y) {
+  if (x < y) return x;
+  if (x > y) return y;
 }
 
 min(0, 10);
