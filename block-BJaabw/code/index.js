@@ -30,11 +30,7 @@ isInRange(1, 10, 19); // false
 // - Write a Function Decleration for above problem
  // Your code
 function isInRange(lower, upper, number) {
- if (number => lower || number <= upper) {
-  return `true`;
- }else {
-   return `false`;
- }
+ return number > lower && number < upper
 }
 // - Execute the function with required parameter
 
@@ -57,14 +53,14 @@ Obese: BMI is 30 or more
 */
 // Your code
 function calculateBMI(weight, height) {
-  let bmi = (weight / (height * height));
+  let bmi = weight / (height * height);
   if (bmi < 18.5){
     return `underweight`;
-  }else if (bmi =>18.5 && bmi <= 24.9) {
+  }else if (bmi >18.5 && bmi < 24.9) {
     return `Normal weight`;
-  } else if (bmi => 25 && bmi <= 24.9) {
+  } else if (bmi > 25 && bmi < 24.9) {
     return `Overweight`;
-  } else if (bmi < 30) {
+  } else if (bmi > 30) {
     return `Obese`;
   }
 }
@@ -80,11 +76,11 @@ Create a function that take the age are return the appropiate drink based on the
 */
 // Your code
 function appropiateDrinks(age) {
-  if (age <= 14){
+  if (age < 14){
     return `drink fruit juice`;
-  }else if (age <= 18) {
+  }else if (age < 18) {
     return `drink soda`;
-  } else if (age <= 21) {
+  } else if (age < 21) {
     return `drink fruit-flavored beer`;
   } else if (age > 21) {
     return `drink throat-piercing vodka`;
@@ -101,12 +97,13 @@ Twist is when user passes anything other than number, or string value you should
 */
 
 // Your code
-function sum(a,b) {
-  if (a = number,  b = number) {
-    return sum = a + b;
-  }
-  else if (a = String, b = String) {
-    return concat = `a + b`;
+function sum(a, b) {
+  if (typeof a == "number" && typeof b == "number") {
+    return a + b;
+  }else if (typeof a == "string" && typeof b == "string") {
+    return a + " " + b;
+  }else {
+    return `Enter valid Values`;
   }
 }
 
